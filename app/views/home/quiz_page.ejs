@@ -1,6 +1,30 @@
 <%- include('../partials/header') %>
 <%- include('../partials/navbar') %>
 
+<div class="my-modal d-n">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1></h1>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="image">
+                    <img src="img/happy.png" alt="">
+                </div>
+            </div>
+ 
+            <div class="col-lg-6">
+                <a href="/quiz/<%= id_quiz %>" class="btn btn-primary">Ulangi Kembali</a>
+            </div>
+
+            <div class="col-lg-6">
+                <a href="/quiz" class="btn btn-success">Kembali Ke Beranda</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <section class="quiz_page">
    <div class="container">
         

@@ -32,10 +32,12 @@ controller.quiz = async (req, res) => {
 }
 
 controller.quiz_page = (req, res) => {
+    let id_quiz = req.params.id
     res.render('home/quiz_page', {
         title: "Quiz | Little Einsten",
         css: ['quiz_page'],
-        js: ['quiz']
+        js: ['quiz'],
+        id_quiz
     })
 }
 
@@ -81,6 +83,11 @@ controller.data_quiz = async (req, res) => {
     const id = parseInt(req.params.id);
     const result = await asyncQuery(`SELECT * FROM soal_quiz WHERE id_quiz=${id}`);
     response(res, 200, {result});
+}
+
+controller.logout = (req, res) => {
+    req.session.destroy();
+    res.redirect('/')
 }
 
 module.exports = controller;

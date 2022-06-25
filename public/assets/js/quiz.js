@@ -55,24 +55,24 @@ const render = (quiz) =>{
 				changeBg(id,"reset",answer);
 				},1000)
 			}else{
-                let allQuiz = (length_quiz)+1
 
-				if(answerTrue == allQuiz ){
-					answerTrue = "Semua"
-                    console.log(answerTrue)
-				}
+				// show modal
+				setTimeout(() => {
+					showModal();
+					$('.my-modal h1').html(`SELAMAT KAMU BERHASIL MENGERJAKAN QUIZ INI DENGAN TOTAL JAWABAN BENAR ADALAH ${answerTrue}`)
+					const mymodal = document.querySelector('.my-modal');
+					mymodal.classList.remove('d-n')
+				},1500)
 
                 // mereset value
 				localStorage.setItem('count',0);
 				localStorage.setItem('answer_true',0);
-                
+				
 			}
 
 		})
 	})
 
-
-    // show modal
 
 }
 
@@ -139,6 +139,12 @@ const getQuiz = (id) => {
     })
 }
 
+// show modal
+const showModal = () => {
+	let body = document.querySelector('body')
+	body.setAttribute('style','height:100%;overflow:hidden');
+}
+
 
 // get params
 let id = document.location.href;
@@ -146,3 +152,4 @@ let id = document.location.href;
     id = parseInt(id[4]);
 
 getQuiz(id)
+
