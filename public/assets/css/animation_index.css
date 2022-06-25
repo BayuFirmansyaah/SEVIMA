@@ -1,0 +1,91 @@
+.animation{
+    width:300px;
+    height: 300px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.animation img{
+    width: 100%;
+}
+
+.animation-1{
+    bottom: -10%;
+    right: -5%;
+    cursor: pointer;
+    transition: .8s ease-in;
+    z-index: 100;
+}
+
+.animation-1:hover{
+    transform: rotate(-360deg);
+    transition: .8s ease-in;
+}
+
+.animation-2{
+    transform: translate(100vh,-50vh);
+    animation: meteor 10s infinite;
+}
+
+.animation-3{
+    transform: translate(-30vh, 100vh);
+    animation: ufo 15s infinite;
+}
+
+.animation-4{
+    top:10%;
+    left:5%;
+    transform: scale(.7);
+}
+
+@keyframes ufo{
+    0%{ transform: translate(-30vh, 100vh) scale(1);}
+    30%{ transform: translate(10vh,60vh) scale(.5); }
+    31%{ transform: translate(10vh,60vh) scale(.5);}
+    100%{ transform: translate(120vh, -50vh) scale(.25);}
+}
+
+@keyframes meteor {
+    0%{ transform: translate(-150vh,-50vh) scale(.8) rotate(-90deg); }
+    100%{ transform: translate(150vh,100vh) scale(.3) rotate(-90deg); }
+}
+
+
+@media(max-width:1300px){
+    .animation{
+        width:250px;
+        height: 250px;
+    }
+
+    .animation-1{
+        bottom: -5%;
+        right: -5%;
+    }
+}
+
+
+@media(max-width:992px){
+    .animation{
+        width:200px;
+        height: 200px;
+    }
+
+    .animation-1{
+        bottom: 5%;
+        right: -10%;
+    }
+}
+
+
+@media(max-width:600px){
+
+    .animation{
+        width:150px;
+        height: 150px;
+    }
+    
+    .animation-1{
+        top:25%;
+        right: -25%;
+    }
+}

@@ -3,10 +3,43 @@
     --brown: #6d4c41;
     --pink: #e91e63;
     --purple: #d500f9;
+    --dark-blue: #14348f;
 }
 
 *{
     margin:0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body{
+    background-color: var(--dark-blue);
+}
+
+/* navbar */
+.navbar{
+    background-color: var(--dark-blue);
+    border-bottom: .5px solid #ccc;
+    height: 80px;
+}
+
+.navbar img{
+    height: 60px;
+}
+
+@media(max-width:1300px){
+
+}
+
+
+@media(max-width:992px){
+
+}
+
+@media(max-width:600px){
+    .navbar{
+        border: none;
+    }
+    
 }
