@@ -1,3 +1,4 @@
+const model = require('../model/admin');
 const controller = {};
 
 controller.index = (req, res) => {
@@ -71,10 +72,26 @@ controller.quiz = (req, res) => {
 }
 
 controller.create_quiz = (req, res) => {
+    let flash_message = null;
+
+    if(req.session.flash_message){
+        flash_message = req.session.flash_message;
+        req.session.flash_message = null;
+        req.session.save();
+    }
+
     res.render('admin/quiz/create', {
         title: "Create Quiz | Little Einstein",
-        js: []
+        js: [],
+        flash_message
     })
+}
+
+controller.create_quiz_post = async (req, res) => {
+    const result = await model.createQuiz(req);
+    req.session.flash_message = result;
+    req.session.save();
+    res.redirect('/admin/create/quiz')
 }
 
 controller.manage_quiz = (req, res) => {

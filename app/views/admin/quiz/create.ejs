@@ -5,7 +5,30 @@
         <h6 class="m-0 font-weight-bold text-primary">Create Quiz</h6>
     </div>
     <div class="card-body">
-        <form>
+
+        <% if (flash_message !== null) { %>
+            <% if(flash_message.path == "/create/quiz"){ %>
+                <% if(flash_message.code == 200){ %> 
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong><%= flash_message.message %> </strong> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <% }else{ %> 
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong><%= flash_message.message %> </strong> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <% } %> 
+            <% } %>  
+        <% } %>
+
+      
+
+        <form action="/admin/create/quiz" method="post">
             <div class="form-group">
               <label for="exampleInputEmail1">Title Quiz</label>
               <input type="text" class="form-control" name="title">
@@ -29,7 +52,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Create Question</h6>
     </div>
     <div class="card-body">
-        <form>
+        <form action="/admin/create/question" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Select Category</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="kategori">
