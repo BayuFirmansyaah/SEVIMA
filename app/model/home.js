@@ -25,4 +25,9 @@ model.auth = async (req) => {
 
 }
 
+model.quizCollection = async () => {
+    const quiz = await asyncQuery(`SELECT * FROM quiz ORDER BY kategori ASC`)
+    return quiz;
+}
+
 module.exports = model;

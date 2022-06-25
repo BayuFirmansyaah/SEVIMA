@@ -1,4 +1,49 @@
 <%- include('../../partials/admin/header') %>
 
+<div class="card shadow mb-4 mt-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">DataTables Quiz</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>quiz</th>
+                        <th>kategori</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+               
+                <tbody>
+                    <%  let i=1 
+                        let kategori = '' 
+                        quiz.forEach( q => { 
+    
+                            if(q.kategori == 1){
+                                kategori = 'Luar Angkasa'
+                            }else if(q.kategori == 2){
+                                kategori = 'Lautan'
+                            }else{
+                                kategori = 'Hutan'
+                            }
+                    %> 
+                        <tr>
+                            <td><%= i %></td>
+                            <td><%= q.title %> </td>
+                            <td> <%= kategori %> </td>
+                            <td> 
+                                <a href="/admin/quiz/<%= q.id %>" class="btn btn-success">Detail</a>
+                            </td>
+                        </tr>
+                    
+                    <% i++ }) %>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 <%- include('../../partials/admin/footer') %>

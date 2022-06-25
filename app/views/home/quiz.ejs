@@ -3,198 +3,69 @@
 
 <section class="quiz">
     <div class="container">
-       
-        <div class="row list-quiz" data-aos="fade-down">
-            <div class="col-lg-12">
-                <h1 class="quiz-title">Quiz Luar Angkasa</h1>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 1</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 2</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 3</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 4</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 5</div>
-                    </div>
-                </a>
-            </div>
-
-        </div>
-
 
         <div class="row list-quiz" data-aos="fade-down">
             <div class="col-lg-12">
                 <h1 class="quiz-title">Quiz Luar Angkasa</h1>
             </div>
 
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 1</div>
+            <% quiz.forEach( q => { %>
+                <% if(q.kategori == 1){ %>
+                    <div class="col-lg-6">
+                        <a href="/quiz/<%= q.id %>">
+                            <div class="box-quiz">
+                                <div class="thumbnail">
+                                    <img src="img/thumbnail/quiz1.png" alt="">
+                                </div>
+                                <div class="info-quiz"><%= q.title %></div>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 2</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 3</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 4</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 5</div>
-                    </div>
-                </a>
-            </div>
-
+                <% } %>  
+            <% }) %>
         </div>
-
 
         <div class="row list-quiz" data-aos="fade-down">
             <div class="col-lg-12">
-                <h1 class="quiz-title">Quiz Luar Angkasa</h1>
+                <h1 class="quiz-title">Quiz Lautan</h1>
             </div>
 
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 1</div>
+            <% quiz.forEach( q => { %>
+                <% if(q.kategori == 2){ %>
+                    <div class="col-lg-6">
+                        <a href="/quiz/<%= q.id %>">
+                            <div class="box-quiz">
+                                <div class="thumbnail">
+                                    <img src="img/thumbnail/quiz1.png" alt="">
+                                </div>
+                                <div class="info-quiz"><%= q.title %></div>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 2</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 3</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 4</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="">
-                    <div class="box-quiz">
-                        <div class="thumbnail">
-                            <img src="img/thumbnail/quiz1.png" alt="">
-                        </div>
-                        <div class="info-quiz">Quiz Luar Angkasa Bagian 5</div>
-                    </div>
-                </a>
-            </div>
-
+                <% } %>  
+            <% }) %>
         </div>
 
+        <div class="row list-quiz" data-aos="fade-down">
+            <div class="col-lg-12">
+                <h1 class="quiz-title">Quiz Hutan</h1>
+            </div>
 
-
-      
+            <% quiz.forEach( q => { %>
+                <% if(q.kategori == 3){ %>
+                    <div class="col-lg-6">
+                        <a href="/quiz/<%= q.id %>">
+                            <div class="box-quiz">
+                                <div class="thumbnail">
+                                    <img src="img/thumbnail/quiz1.png" alt="">
+                                </div>
+                                <div class="info-quiz"><%= q.title %></div>
+                            </div>
+                        </a>
+                    </div>
+                <% } %>  
+            <% }) %>
+        </div>
 
     </div>
 </section>

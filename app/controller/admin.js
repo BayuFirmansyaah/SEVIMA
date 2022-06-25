@@ -64,10 +64,13 @@ controller.manage_article = (req, res) => {
 
 
 // quiz
-controller.quiz = (req, res) => {
+controller.quiz = async (req, res) => {
+    const quiz = await model.quizCollection();
+
     res.render('admin/quiz/index', {
         title: "Quiz | Little Einstein",
-        js: []
+        js: [],
+        quiz
     })
 }
 

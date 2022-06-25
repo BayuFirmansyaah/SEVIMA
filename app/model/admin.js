@@ -1,5 +1,6 @@
 const asyncQuery = require('../helper/mysql/asyncQuery');
 const insert = require('../helper/mysql/insert');
+const collection = require('../helper/mysql/collection');
 const model = {}
 
 
@@ -21,6 +22,11 @@ model.createQuiz = async (req) => {
 
     return {code: 200, message: "Success Create Message", path: "/create/quiz"}
 
+}
+
+model.quizCollection = async () => {
+    const quiz = await collection('quiz');
+    return quiz;
 }
 
 module.exports = model;

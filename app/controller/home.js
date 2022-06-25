@@ -19,11 +19,14 @@ controller.eksplorasi = (req, res) => {
 }
 
 
-controller.quiz = (req, res) => {
+controller.quiz = async (req, res) => {
+    const quiz = await model.quizCollection();
+
     res.render('home/quiz', {
        title: "Quiz | Little Einsten",
        css: ['quiz'],
-       js: []
+       js: [],
+       quiz
    })
 }
 
