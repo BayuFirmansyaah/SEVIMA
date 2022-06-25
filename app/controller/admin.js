@@ -17,9 +17,17 @@ controller.account = (req, res) => {
 }
 
 controller.register = (req, res) => {
+    let flash_message = null;
+    
+    if(req.session.flash_message){
+        flash_message = req.session.flash_message;
+        req.session.flash_message = null;
+    }
+
     res.render('admin/account/register', {
         title: "Register | Little Einstein",
-        js: ['admin/register']
+        js: [],
+        flash_message
     })
 }
 

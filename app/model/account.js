@@ -34,7 +34,7 @@ model.createAccount = async (req) => {
     const hash_password = await bcrypt.hashSync(password, salt);
     const result = await insert('account', {username, password:hash_password, role});
     
-    return result;
+    return {code:200, data: {message: "Success Create Account"}};
 
 }
 

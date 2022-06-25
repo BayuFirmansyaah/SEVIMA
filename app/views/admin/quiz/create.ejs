@@ -1,4 +1,138 @@
 <%- include('../../partials/admin/header') %>
 
+<div class="card shadow mb-4 mt-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Create Quiz</h6>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Title Quiz</label>
+              <input type="text" class="form-control" name="title">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Category Quiz</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="kategori">
+                  <option value="1">Luar Angkasa</option>
+                  <option value="2">Lautan</option>
+                  <option value="3">Hutan</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div>
+
+
+<div class="card shadow mb-4 mt-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Create Question</h6>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Select Category</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="kategori">
+                  <option value="1">Luar Angkasa</option>
+                  <option value="2">Lautan</option>
+                  <option value="3">Hutan</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Select Quiz</label>
+                <select class="form-control" id="list_quiz" name="id_quiz" disabled>
+                </select>
+            </div>
+
+            <div class="form-group">  
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Image Quiz [1920 x 1080]</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Answer A</label>
+                        <input type="text" class="form-control" name="title">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Value Answer A</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="kategori">
+                          <option value="0">False</option>
+                          <option value="1">True</option>
+                        </select>
+                    </div>
+        
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Answer B</label>
+                        <input type="text" class="form-control" name="title">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Value Answer B</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="kategori">
+                          <option value="0">False</option>
+                          <option value="1">True</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Answer C</label>
+                        <input type="text" class="form-control" name="title">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Value Answer C</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="kategori">
+                          <option value="0">False</option>
+                          <option value="1">True</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Answer D</label>
+                        <input type="text" class="form-control" name="title">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Value Answer D</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="kategori">
+                          <option value="0">False</option>
+                          <option value="1">True</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div>
+
 
 <%- include('../../partials/admin/footer') %>

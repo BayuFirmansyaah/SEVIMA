@@ -9,7 +9,9 @@ controller.getAccount = async (req, res) => {
 
 controller.postAccount = async (req, res) => {
     const account = await model.createAccount(req);
-    response(res, account.code, account.data);
+    req.session.flash_message = account;
+    res.redirect('/admin/register');
+
 }
 
 module.exports = controller;
