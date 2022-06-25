@@ -15,9 +15,18 @@ controller.index = async (req, res) => {
 
 // account
 controller.account = (req, res) => {
+    let flash_message = null;
+
+    if(req.session.flash_message){
+        flash_message = req.session.flash_message;
+        req.session.flash_message = null;
+        req.session.save();
+    }
+
     res.render('admin/account/index', {
         title: "Account | Little Einstein",
-        js: ['admin/account']
+        js: ['admin/account'],
+        flash_message
     })
 }
 
@@ -159,6 +168,22 @@ controller.delete_quiz = async (req, res) => {
     req.session.flash_message = data;
     req.session.save();
     res.redirect('/admin/manage/quiz')
+}
+
+controller.delete_account = async (req, res) => {
+    let id = parseInt(req.params.id);
+    let result = await asyncQuery(`DELETE FROM account WHERE id=${id}`);
+    let data = null;
+
+    if(result.affectedRows > 0){
+        data = {code: 200, message: "success delete data!!", path:"/manage/account"}
+    }else{
+        data = {code: 400, message: "can't delete data!!", path:"/manage/account"}
+    }
+
+    req.session.flash_message = data;
+    req.session.save();
+    res.redirect('/admin/account')
 }
 
 module.exports = controller;

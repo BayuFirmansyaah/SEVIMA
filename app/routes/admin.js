@@ -23,13 +23,16 @@ router.get('/quiz/:id', [s_admin], controller.detail_quiz);
 router.get('/create/quiz', [s_admin], controller.create_quiz);
 router.get('/manage/quiz', [s_admin], controller.manage_quiz);
 
-router.get('/delete/quiz/:id', [s_admin], controller.delete_quiz);
-
 router.post('/create/quiz', [s_admin], controller.create_quiz_post);
 router.post(
     '/create/question', 
     [s_admin, multer({storage: diskStorage}).single("image")],
     controller.create_question
 );
+
+
+// delete
+router.get('/delete/quiz/:id', [s_admin], controller.delete_quiz);
+router.get('/delete/account/:id', [s_admin], controller.delete_account);
 
 module.exports = router;

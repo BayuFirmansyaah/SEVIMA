@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function(){
                     <td>${user.username}</td>
                     <td>${user.password}</td>
                     <td>${role}</td>
+                    <td> 
+                        <a href="/admin/delete/account/${user.id}" onclick="return confirm('apakah anda yakin ingin menghapus data ini ?')" class="btn btn-danger">Delete</a>
+                    </td>
                 </tr>
                 `
                 i++
