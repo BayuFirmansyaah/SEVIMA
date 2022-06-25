@@ -14,6 +14,7 @@ router.post('/login', controller.login_auth);
 
 // get quiz
 router.get('/category/quiz/:id', controller.category_quiz);
+router.get('/quiz/data/:id', controller.data_quiz);
 
 
 module.exports = router;

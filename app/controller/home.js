@@ -35,7 +35,7 @@ controller.quiz_page = (req, res) => {
     res.render('home/quiz_page', {
         title: "1 | Little Einsten",
         css: ['quiz_page'],
-        js: []
+        js: ['quiz']
     })
 }
 
@@ -75,6 +75,12 @@ controller.category_quiz = async (req, res) => {
     const id = parseInt(req.params.id);
     const result = await asyncQuery(`SELECT * FROM quiz WHERE kategori=${id}`);
     response(res, 200, result);
+}
+
+controller.data_quiz = async (req, res) => {
+    const id = parseInt(req.params.id);
+    const result = await asyncQuery(`SELECT * FROM soal_quiz WHERE id_quiz=${id}`);
+    response(res, 200, {result});
 }
 
 module.exports = controller;
