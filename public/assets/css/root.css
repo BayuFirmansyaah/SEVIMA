@@ -22,6 +22,7 @@ body{
     background-color: var(--dark-blue);
     border-bottom: .5px solid #ccc;
     height: 80px;
+    z-index: 1000;
 }
 
 .navbar img{

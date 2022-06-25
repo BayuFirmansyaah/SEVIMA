@@ -25,4 +25,12 @@ controller.quiz = (req, res) => {
    })
 }
 
+controller.quiz_page = (req, res) => {
+    res.render('home/quiz', {
+        title: "Quiz | Little Einsten",
+        css: ['quiz'],
+        js: []
+    })
+}
+
 module.exports = controller;

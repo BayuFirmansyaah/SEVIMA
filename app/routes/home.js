@@ -5,5 +5,6 @@ const controller = require('../controller/home');
 router.get('/', controller.index);
 router.get('/eksplorasi', controller.eksplorasi);
 router.get('/quiz', controller.quiz);
+router.get('/quiz/:id', controller.quiz_page);
 
 module.exports = router;
