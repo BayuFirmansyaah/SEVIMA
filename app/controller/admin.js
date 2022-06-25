@@ -1,3 +1,4 @@
+const asyncQuery = require('../helper/mysql/asyncQuery');
 const model = require('../model/admin');
 const controller = {};
 
@@ -112,11 +113,38 @@ controller.create_question = async (req, res) => {
     res.redirect('/admin/create/quiz');
 }
 
-controller.manage_quiz = (req, res) => {
+controller.manage_quiz = async (req, res) => {
+    let flash_message = null;
+
+    if(req.session.flash_message){
+        flash_message = req.session.flash_message;
+        req.session.flash_message = null;
+        req.session.save();
+    }
+
+    const quiz = await model.quizCollection();
     res.render('admin/quiz/manage', {
         title: "Manage Quiz | Little Einstein",
-        js: []
+        js: [],
+        quiz,
+        flash_message
     })
+}
+
+controller.delete_quiz = async (req, res) => {
+    let id = parseInt(req.params.id);
+    let result = await asyncQuery(`DELETE FROM quiz WHERE id=${id}`);
+    let data = null;
+
+    if(result.affectedRows > 0){
+        data = {code: 200, message: "success delete data!!", path:"/manage/quiz"}
+    }else{
+        data = {code: 400, message: "can't delete data!!", path:"/manage/quiz"}
+    }
+
+    req.session.flash_message = data;
+    req.session.save();
+    res.redirect('/admin/manage/quiz')
 }
 
 module.exports = controller;

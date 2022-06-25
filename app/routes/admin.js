@@ -22,6 +22,8 @@ router.get('/quiz', [s_admin], controller.quiz);
 router.get('/create/quiz', [s_admin], controller.create_quiz);
 router.get('/manage/quiz', [s_admin], controller.manage_quiz);
 
+router.get('/delete/quiz/:id', [s_admin], controller.delete_quiz);
+
 router.post('/create/quiz', [s_admin], controller.create_quiz_post);
 router.post(
     '/create/question', 

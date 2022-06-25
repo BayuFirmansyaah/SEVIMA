@@ -1,4 +1,73 @@
 <%- include('../../partials/admin/header') %>
 
+<% if (flash_message !== null) { %>
+    <% if(flash_message.path == "/manage/quiz"){ %>
+        <% if(flash_message.code == 200){ %> 
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong><%= flash_message.message %> </strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <% }else{ %> 
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong><%= flash_message.message %> </strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <% } %> 
+    <% } %>  
+<% } %>
+
+
+<div class="card shadow mb-4 mt-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">DataTables Quiz</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="text-center">No</th>
+                        <th>quiz</th>
+                        <th>kategori</th>
+                        <th colspan="2" class="text-center">Action</th>
+                    </tr>
+                </thead>
+               
+                <tbody>
+                    <%  let i=1 
+                        let kategori = '' 
+                        quiz.forEach( q => { 
+    
+                            if(q.kategori == 1){
+                                kategori = 'Luar Angkasa'
+                            }else if(q.kategori == 2){
+                                kategori = 'Lautan'
+                            }else{
+                                kategori = 'Hutan'
+                            }
+                    %> 
+                        <tr>
+                            <td class="text-center"><%= i %></td>
+                            <td><%= q.title %> </td>
+                            <td> <%= kategori %> </td>
+                            <td> 
+                                <a href="/admin/detail/quiz/<%= q.id %>" class="btn btn-success">Detail</a>
+                            </td>
+                            <td> 
+                                <a href="/admin/delete/quiz/<%= q.id %>" onclick="return confirm('apakah anda yakin ingin menghapus data ini ?')" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    
+                    <% i++ }) %>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 <%- include('../../partials/admin/footer') %>
