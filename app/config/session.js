@@ -6,7 +6,7 @@ const config = {
         host: "localhost",
         user: "root",
         password: "",
-        database: "semvima",
+        database: "sevima",
         clearExpired: true,
         checkExpirationInterval: 600000,
         expiration: 2628000000,
