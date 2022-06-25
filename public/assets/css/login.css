@@ -14,6 +14,10 @@
     margin-top: 60px;
 }
 
+.alert{
+    text-align: left;
+}
+
 form{
     text-align: left;
     width: 90%;
@@ -22,7 +26,8 @@ form{
     font-family: 'Inter', sans-serif;
 }
 
-button{
+form button{
     width:100%;
     margin-top:15px;
 }
+

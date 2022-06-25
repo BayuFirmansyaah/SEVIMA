@@ -2,7 +2,8 @@ const controller = {};
 
 controller.index = (req, res) => {
     res.render('admin/index', {
-        title: "Admin | Little Einstein"
+        title: "Admin | Little Einstein",
+        js: []
     })
 }
 
@@ -10,19 +11,22 @@ controller.index = (req, res) => {
 // account
 controller.account = (req, res) => {
     res.render('admin/account/index', {
-        title: "Account | Little Einstein"
+        title: "Account | Little Einstein",
+        js: ['admin/account']
     })
 }
 
 controller.register = (req, res) => {
     res.render('admin/account/register', {
-        title: "Register | Little Einstein"
+        title: "Register | Little Einstein",
+        js: ['admin/register']
     })
 }
 
 controller.manage_account = (req, res) => {
     res.render('admin/account/manage', {
-        title: "Manage Account | Little Einstein"
+        title: "Manage Account | Little Einstein",
+        js: []
     })
 }
 
@@ -30,19 +34,22 @@ controller.manage_account = (req, res) => {
 // article
 controller.article = (req, res) => {
     res.render('admin/article/index', {
-        title: "Article | Little Einstein"
+        title: "Article | Little Einstein",
+        js: []
     })
 }
 
 controller.create_article = (req, res) => {
     res.render('admin/article/create', {
-        title: "Create Article | Little Einstein"
+        title: "Create Article | Little Einstein",
+        js: []
     })
 }
 
 controller.manage_article = (req, res) => {
     res.render('admin/article/manage', {
-        title: "Manage Article | Little Einstein"
+        title: "Manage Article | Little Einstein",
+        js: []
     })
 }
 
@@ -50,19 +57,22 @@ controller.manage_article = (req, res) => {
 // quiz
 controller.quiz = (req, res) => {
     res.render('admin/quiz/index', {
-        title: "Quiz | Little Einstein"
+        title: "Quiz | Little Einstein",
+        js: []
     })
 }
 
 controller.create_quiz = (req, res) => {
     res.render('admin/quiz/create', {
-        title: "Create Quiz | Little Einstein"
+        title: "Create Quiz | Little Einstein",
+        js: []
     })
 }
 
 controller.manage_quiz = (req, res) => {
     res.render('admin/quiz/manage', {
-        title: "Manage Quiz | Little Einstein"
+        title: "Manage Quiz | Little Einstein",
+        js: []
     })
 }
 

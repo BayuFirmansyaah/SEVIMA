@@ -1,3 +1,5 @@
+const model = require('../model/home');
+const response = require('../helper/response');
 const controller = {}
 
 controller.index = (req, res) => {
@@ -34,11 +36,33 @@ controller.quiz_page = (req, res) => {
 }
 
 controller.login = (req, res) => {
+    let flash_message = null;
+    if(req.session.flash_message){
+        flash_message = req.session.flash_message;
+        req.session.flash_message = null;
+        req.session.save();
+    }
+
     res.render('home/login', {
         title: "Login | Little Einsten",
         css: ['login'],
-        js: []
+        js: [],
+        flash_message
     })
+}
+
+controller.login_auth = async (req, res) => {
+    const user = await model.auth(req);
+
+    if(user.code == 200){
+        req.session.user_id = user.id;
+        req.session.save();
+        res.redirect('/admin');
+    }else{
+        req.session.flash_message = user.message;
+        req.session.save();
+        res.redirect('/login');
+    }
 }
 
 module.exports = controller;

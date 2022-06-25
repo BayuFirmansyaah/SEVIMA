@@ -1,9 +1,19 @@
 <%- include('../partials/header') %>
 
 <section class="login">
+
     <h2 class="text-login">Selamat Datang Admin</h2>
 
-    <form>
+    <% if (flash_message !== null) { %>
+      <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+        <strong> <%= flash_message %> </strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% } %>
+
+    <form action="/login" method="POST">
         <div class="form-group">
           <label for="exampleInputEmail1">Username</label>
           <input type="text" class="form-control" name="username">

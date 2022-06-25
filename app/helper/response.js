@@ -1,5 +1,5 @@
 const response = (res, status, data) => {
-    res.status(status).json(data);
+    res.set('Content-Type', 'application/json').status(status).json(data);
 }
 
 module.exports = response;
