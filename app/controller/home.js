@@ -1,5 +1,6 @@
 const model = require('../model/home');
 const response = require('../helper/response');
+const asyncQuery = require('../helper/mysql/asyncQuery');
 const controller = {}
 
 controller.index = (req, res) => {
@@ -68,6 +69,12 @@ controller.login_auth = async (req, res) => {
         req.session.save();
         res.redirect('/login');
     }
+}
+
+controller.category_quiz = async (req, res) => {
+    const id = parseInt(req.params.id);
+    const result = await asyncQuery(`SELECT * FROM quiz WHERE kategori=${id}`);
+    response(res, 200, result);
 }
 
 module.exports = controller;

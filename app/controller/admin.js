@@ -85,7 +85,7 @@ controller.create_quiz = (req, res) => {
 
     res.render('admin/quiz/create', {
         title: "Create Quiz | Little Einstein",
-        js: [],
+        js: ['create_quiz'],
         flash_message
     })
 }
@@ -95,6 +95,21 @@ controller.create_quiz_post = async (req, res) => {
     req.session.flash_message = result;
     req.session.save();
     res.redirect('/admin/create/quiz')
+}
+
+controller.create_question = async (req, res) => {
+    const file = req.file.filename;
+    const result = await model.createQuestion(req, file);
+    
+    const data = {
+        code: result.code,
+        message: result.data.message,
+        path: "/create/question" 
+    }
+
+    req.session.flash_message = data;
+    req.session.save();
+    res.redirect('/admin/create/quiz');
 }
 
 controller.manage_quiz = (req, res) => {

@@ -12,5 +12,8 @@ router.get('/quiz/:id', controller.quiz_page);
 router.get('/login', [s_login], controller.login);
 router.post('/login', controller.login_auth);
 
+// get quiz
+router.get('/category/quiz/:id', controller.category_quiz);
+
 
 module.exports = router;

@@ -29,4 +29,31 @@ model.quizCollection = async () => {
     return quiz;
 }
 
+model.createQuestion = async (req, image) => {
+    const {
+        id_quiz,
+        answer_a, value_a,
+        answer_b, value_b,
+        answer_c, value_c,
+        answer_d, value_d
+    } = req.body
+
+    const answer = [
+        { answer_a, value_a},
+        { answer_b, value_b},
+        { answer_c, value_c},
+        { answer_d, value_d}
+    ];
+
+    const data = {
+        id_quiz,
+        image,
+        answer : JSON.stringify(answer)
+    }
+
+    const result = await insert('soal_quiz', data);
+
+    return result;
+}
+
 module.exports = model;
