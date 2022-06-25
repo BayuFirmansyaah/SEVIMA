@@ -33,7 +33,7 @@ controller.quiz = async (req, res) => {
 
 controller.quiz_page = (req, res) => {
     res.render('home/quiz_page', {
-        title: "1 | Little Einsten",
+        title: "Quiz | Little Einsten",
         css: ['quiz_page'],
         js: ['quiz']
     })

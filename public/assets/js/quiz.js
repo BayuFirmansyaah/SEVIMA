@@ -55,21 +55,24 @@ const render = (quiz) =>{
 				changeBg(id,"reset",answer);
 				},1000)
 			}else{
-				// mereset value
-				localStorage.setItem('count',0);
-				localStorage.setItem('answer_true',0);
-				
                 let allQuiz = (length_quiz)+1
 
 				if(answerTrue == allQuiz ){
 					answerTrue = "Semua"
                     console.log(answerTrue)
 				}
-				
+
+                // mereset value
+				localStorage.setItem('count',0);
+				localStorage.setItem('answer_true',0);
+                
 			}
 
 		})
 	})
+
+
+    // show modal
 
 }
 
@@ -84,15 +87,17 @@ const chekAnswer = (data,count,id) =>{
 
 // funsi untuk mengubah button
 const changeBg = (id,option,el) =>{
-	let dataColor = ["orangered","#e91e63","green","blueviolet"]
+	let dataColor = ["skyblue","lawngreen","salmon","lightpink"]
 
 	if(option == "show"){
-		for(let i=0;i<el.length;i++){
-			if(id == i){
-				
-			}else{
-				el[i].setAttribute("style","background-color:#212529")
-			}
+	    let answer = document.querySelectorAll(".answer")
+        let check_answer = null;
+
+		for(let i=0;i<answer.length;i++){
+			check_answer = answer[i].getAttribute('answer');
+            if(check_answer == 0){
+                answer[i].setAttribute("style","background-color:#212529")
+            }
 		}
 	}else{
 		for(let i=0;i<el.length;i++){
@@ -118,15 +123,6 @@ const inserData = (count,question,answer,data) => {
 	}	
 }
 
-// fungsi untuk mencari nilai yang benar
-const trueValue = (answer) =>{
-	for(let i=0;i<answer.length;i++){
-		let valueAnswer = answer[i].getAttribute("answer");
-		if(valueAnswer == 1){
-			 return answer[i].getAttribute("id");
-		}
-	}
-}
 
 // get quiz question
 const getQuiz = (id) => {
