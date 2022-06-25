@@ -56,4 +56,9 @@ model.createQuestion = async (req, image) => {
     return result;
 }
 
+model.quiz_detail = async (id) => {
+    const quiz = await asyncQuery(`SELECT * FROM soal_quiz WHERE id_quiz=${id}`)
+    return quiz;
+}
+
 module.exports = model;

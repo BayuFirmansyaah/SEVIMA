@@ -2,10 +2,13 @@ const asyncQuery = require('../helper/mysql/asyncQuery');
 const model = require('../model/admin');
 const controller = {};
 
-controller.index = (req, res) => {
-    res.render('admin/index', {
-        title: "Admin | Little Einstein",
-        js: []
+controller.index = async (req, res) => {
+    const quiz = await model.quizCollection();
+
+    res.render('admin/quiz/index', {
+        title: "Index | Little Einstein",
+        js: [],
+        quiz
     })
 }
 
@@ -88,6 +91,17 @@ controller.create_quiz = (req, res) => {
         title: "Create Quiz | Little Einstein",
         js: ['create_quiz'],
         flash_message
+    })
+}
+
+controller.detail_quiz = async (req, res) => {
+    let id = req.params.id
+    const quiz = await model.quiz_detail(id)
+
+    res.render('admin/quiz/detail', {
+        title: "Detail Quiz | Little Einstein",
+        js: [],
+        quiz
     })
 }
 
