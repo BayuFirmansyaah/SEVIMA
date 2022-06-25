@@ -36,12 +36,15 @@ controller.quiz_page = (req, res) => {
 }
 
 controller.login = (req, res) => {
+ 
+
     let flash_message = null;
     if(req.session.flash_message){
         flash_message = req.session.flash_message;
         req.session.flash_message = null;
         req.session.save();
     }
+
 
     res.render('home/login', {
         title: "Login | Little Einsten",
@@ -55,7 +58,8 @@ controller.login_auth = async (req, res) => {
     const user = await model.auth(req);
 
     if(user.code == 200){
-        req.session.user_id = user.id;
+        console.log(user)
+        req.session.user_id = user.data.id;
         req.session.save();
         res.redirect('/admin');
     }else{
