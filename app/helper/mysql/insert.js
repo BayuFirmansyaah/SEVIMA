@@ -30,10 +30,10 @@ const insert = (table, data) => {
         connection.query(sql, value, (err, result, rows) => {
             if(err){
                 console.log(err);
-                reject(err)
+                reject({code: 400, data:err})
             }
 
-            resolve(result);
+            resolve({code: 200, data:result});
         })
     })
 }

@@ -23,12 +23,13 @@ app.set('view engine', 'ejs');
 // routes here
 const homeRouter = require('./app/routes/home');
 const adminRouter = require('./app/routes/admin');
+const accountRouter = require('./app/routes/account');
 
 
 // use router
 app.use('/', homeRouter);
 app.use('/admin', adminRouter);
-
+app.use('/account', accountRouter);
 
 // page not found
 app.use((req, res, next) => {
